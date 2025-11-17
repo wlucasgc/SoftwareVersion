@@ -15,6 +15,7 @@ class SoftwareVersion {
 
     public:
         SoftwareVersion(const byte& major, const byte& minor, const byte& patch, const bool& dev = false);
+        SoftwareVersion(const String& softwareVersion);
         
         const bool isDev() const;
         const String toString() const;

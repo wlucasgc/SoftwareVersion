@@ -5,7 +5,7 @@
 #include "SoftwareVersion.h"
 
 //=================================================================================================
-// CONSTRUTOR
+// CONSTRUCTOR 1
 //=================================================================================================
 
 SoftwareVersion::SoftwareVersion(const byte& major, const byte& minor, const byte& patch, const bool& dev):
@@ -13,6 +13,21 @@ SoftwareVersion::SoftwareVersion(const byte& major, const byte& minor, const byt
     _minor(minor),
     _patch(patch),
     _dev(dev) {
+}
+
+//=================================================================================================
+// CONSTRUCTOR 2
+//=================================================================================================
+
+SoftwareVersion::SoftwareVersion(const String& softwareVersion) {
+    if(!softwareVersion.endsWith("-dev")) {
+        sscanf(softwareVersion.c_str(), "v%d.%d.%d", &this->_major, &this->_minor, &this->_patch);
+        this->_dev = false;
+        return;
+    }
+
+    sscanf(softwareVersion.c_str(), "v%d.%d.%d-dev", &this->_major, &this->_minor, &this->_patch);
+    this->_dev = true;
 }
 
 //=================================================================================================
