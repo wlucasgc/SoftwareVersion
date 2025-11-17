@@ -8,6 +8,12 @@
 // CONSTRUCTOR 1
 //=================================================================================================
 
+SoftwareVersion::SoftwareVersion() : SoftwareVersion(0, 0, 0) {}
+
+//=================================================================================================
+// CONSTRUCTOR 2
+//=================================================================================================
+
 SoftwareVersion::SoftwareVersion(const byte& major, const byte& minor, const byte& patch, const bool& dev):
     _major(major),
     _minor(minor),
@@ -16,7 +22,7 @@ SoftwareVersion::SoftwareVersion(const byte& major, const byte& minor, const byt
 }
 
 //=================================================================================================
-// CONSTRUCTOR 2
+// CONSTRUCTOR 3
 //=================================================================================================
 
 SoftwareVersion::SoftwareVersion(const String& softwareVersion) {

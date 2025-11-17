@@ -14,6 +14,7 @@ class SoftwareVersion {
         bool _dev;
 
     public:
+        SoftwareVersion();
         SoftwareVersion(const byte& major, const byte& minor, const byte& patch, const bool& dev = false);
         SoftwareVersion(const String& softwareVersion);
         
