@@ -20,6 +20,14 @@ class SoftwareVersion {
         
         const bool isDev() const;
         const String toString() const;
+
+        SoftwareVersion& operator=(const SoftwareVersion& other);
+        const bool operator==(const SoftwareVersion& other) const;
+        const bool operator!=(const SoftwareVersion& other) const;
+        const bool operator<(const SoftwareVersion& other) const;
+        const bool operator>(const SoftwareVersion& other) const;
+        const bool operator<=(const SoftwareVersion& other) const;
+        const bool operator>=(const SoftwareVersion& other) const;
 };
 
 //=================================================================================================

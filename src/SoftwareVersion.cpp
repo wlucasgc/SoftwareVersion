@@ -62,3 +62,122 @@ const String SoftwareVersion::toString() const {
 }
 
 //=================================================================================================
+// OPERATIONS
+//=================================================================================================
+
+SoftwareVersion& SoftwareVersion::operator=(const SoftwareVersion& other) {
+    if(this != &other) {
+        this->_major = other._major;
+        this->_minor = other._minor;
+        this->_patch = other._patch;
+        this->_dev = other._dev;
+    }
+
+    return(*this);
+}
+
+const bool SoftwareVersion::operator==(const SoftwareVersion& other) const {
+    return(this->_major == other._major && this->_minor == other._minor && this->_patch == other._patch && this->_dev == other._dev);
+}
+
+const bool SoftwareVersion::operator!=(const SoftwareVersion& other) const {
+    return(this->_major != other._major || this->_minor != other._minor || this->_patch != other._patch || this->_dev != other._dev);
+}
+
+const bool SoftwareVersion::operator<(const SoftwareVersion& other) const {
+    if(this->_major > other._major) {
+        return(false);
+    }
+    
+    if(this->_major < other._major) {
+        return(true);
+    }
+    
+    if(this->_minor > other._minor) {
+        return(false);
+    }
+    
+    if(this->_minor < other._minor) {
+        return(true);
+    }
+
+    if(this->_patch >= other._patch) {
+        return(false);
+    }
+    
+    return(true);
+}
+
+const bool SoftwareVersion::operator>(const SoftwareVersion& other) const {
+    if(this->_major < other._major) {
+        return(false);
+    }
+
+    if(this->_major > other._major) {
+        return(true);
+    }
+    
+    if(this->_minor < other._minor) {
+        return(false);
+    }
+
+    if(this->_minor > other._minor) {
+        return(true);
+    }
+    
+    if(this->_patch <= other._patch) {
+        return(false);
+    }
+    
+    return(true);
+}
+
+const bool SoftwareVersion::operator<=(const SoftwareVersion& other) const {
+    if(this->_major > other._major) {
+        return(false);
+    }
+
+    if(this->_major < other._major) {
+        return(true);
+    }
+    
+    if(this->_minor > other._minor) {
+        return(false);
+    }
+
+    if(this->_minor < other._minor) {
+        return(true);
+    }
+    
+    if(this->_patch > other._patch) {
+        return(false);
+    }
+    
+    return(true);
+}
+
+const bool SoftwareVersion::operator>=(const SoftwareVersion& other) const {
+    if(this->_major < other._major) {
+        return(false);
+    }
+
+    if(this->_major > other._major) {
+        return(true);
+    }
+    
+    if(this->_minor < other._minor) {
+        return(false);
+    }
+
+    if(this->_minor > other._minor) {
+        return(true);
+    }
+    
+    if(this->_patch < other._patch) {
+        return(false);
+    }
+    
+    return(true);
+}
+
+//=================================================================================================
